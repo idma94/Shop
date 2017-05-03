@@ -1,0 +1,45 @@
+@import "var"
+.header
+  margin: 42px 0
+  text-transform: uppercase
+  .container
+    height: 100%
+
+.logo
+  font-size: 36px
+  font-weight: 700
+  margin-right: 45px
+
+.header-nav
+  flex: 1 1
+
+.header-link
+  color: inherit
+  font-weight: 700
+  font-size: 14px
+  padding: 0 12px
+  &:hover
+    color: $primary
+
+//search
+$input-height: 30px
+$top: 5px
+$right: 10px
+.search-from
+  position: relative
+  margin: 0 15px
+
+.search_icon
+  position: absolute
+  font-size: 15px
+  right: $right
+  top: $top
+
+.search-from__input
+  max-width: 175px
+  font-size: 13px
+  color: #b7b7b7
+  padding: $top $right
+  height: $input-height
+  border: 1px solid #c6c6c6
+
