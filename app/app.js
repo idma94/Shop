@@ -1,31 +1,36 @@
 /**
  * Created by Zeus on 02.05.2017.
  */
-"use strict";
-var Basket = (function () {
-    var products = [];
+window.onload = function () {
+    var card = initElements('.card');
+    // На все карточки повесить обработчик
+    console.log(card[0].children);
 
-    function _add(item) {
-        products.push(item)
+    var buttons = initElements('.choice-btn');
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function (e) {
+            Basket.add({id: Math.ceil(Math.random() * 10), title: 'Tera' + Math.ceil(Math.random() * 100), prise: Math.random()* 1000});
+            console.log(Basket.getAll())
+        })
     }
 
-    function _getAll() {
-        return products
+    function initElements(value) {
+        var char = value.charAt(0); // #-id .class
+        var elements = [];
+        switch(char) {
+            case '#':
+                var id = value.substring(1);
+                elements = document.getElementById(id);
+                break;
+            case '.':
+                var className = value.substring(1);
+                elements = document.getElementsByClassName(className);
+                break;
+            // ...
+            default:
+                return new Error('invalid argument');
+
+        }
+        return elements;
     }
-
-    function _remove(id) {
-
-    }
-
-    function _count() {
-        return products.length
-    }
-
-    return {
-        add: _add,
-        getAll: _getAll,
-        remove: _remove,
-        count: _count
-    }
-})();
-
+};
